@@ -17,3 +17,20 @@ open /tmp/disable.upgrade.mobileconfig
 # install profile
 open "x-apple.systempreferences:com.apple.preferences.configurationprofiles"
 ```
+
+### QEMU Alpine VM
+
+<!-- curl -H "Accept: application/vnd.github.raw" -fsSL "https://api.github.com/repos/navtoj/scripts/contents/mac/qemu.alpine.ts" -->
+
+```shell
+curl -fsSL https://raw.githubusercontent.com/navtoj/scripts/main/mac/qemu.alpine.ts | bash
+```
+
+<details>
+<summary>To remove, run with <code>--uninstall</code> flag.</summary>
+
+```shell
+bash <(curl -fsSL https://raw.githubusercontent.com/navtoj/scripts/main/mac/qemu.alpine.ts) --uninstall
+```
+
+</details>
