@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>PayloadContent</key>
+		<array>
+			<dict>
+				<key>PayloadDisplayName</key>
+				<string>Restrictions</string>
+				<key>PayloadIdentifier</key>
+				<string>com.apple.applicationaccess.disable.upgrade</string>
+				<key>PayloadType</key>
+				<string>com.apple.applicationaccess</string>
+				<key>PayloadUUID</key>
+				<string>disable.upgrade.uuid</string>
+				<key>PayloadVersion</key>
+				<integer>1</integer>
+				<key>enforcedSoftwareUpdateMajorOSDeferredInstallDelay</key>
+				<integer>90</integer>
+				<key>forceDelayedMajorSoftwareUpdates</key>
+				<true />
+			</dict>
+		</array>
+		<key>PayloadDisplayName</key>
+		<string>Disable Upgrade</string>
+		<key>PayloadIdentifier</key>
+		<string>disable.upgrade</string>
+		<key>PayloadScope</key>
+		<string>System</string>
+		<key>PayloadType</key>
+		<string>Configuration</string>
+		<key>PayloadUUID</key>
+		<string>disable.upgrade</string>
+		<key>PayloadVersion</key>
+		<integer>1</integer>
+		<key>RemovalDate</key>
+		<date>9999-12-31T14:00:26Z</date>
+		<key>TargetDeviceType</key>
+		<integer>5</integer>
+	</dict>
+</plist>
