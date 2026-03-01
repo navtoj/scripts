@@ -30,7 +30,9 @@ for size in 16 32 64 128 256 512; do sips -z $size $size "1024.png" --out "${siz
 
 1. Create a folder named `AppIcon.appiconset`.
 2. Move all files named `{size}.png` into it.
-3. Create a `Contents.json` file inside with the content below.
+3. Copy the file below into the folder.
+
+### `Contents.json`
 
 ```json
 {
