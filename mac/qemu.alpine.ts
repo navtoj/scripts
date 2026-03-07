@@ -814,15 +814,14 @@ namespace SSH {
 namespace VM {
 	async function WatchLog(
 		match: (line: string) => boolean,
+		options?: RequireAtLeastOne<{ signal: AbortSignal }>,
 	): Promise<boolean> {
-		const tail = new AbortController();
 		const command = new Deno.Command('tail', {
 			args: ['-f', '-n', '0', Static.path('Base.Log')],
 			stdout: 'piped',
 			stderr: 'null',
 			stdin: 'null',
-			detached: true,
-			signal: tail.signal,
+			signal: options?.signal,
 		}).spawn();
 
 		const decoder = new TextDecoderStream();
@@ -840,8 +839,9 @@ namespace VM {
 				buffer = lines.pop() ?? '';
 			}
 		} finally {
+			Log.debug(`WatchLog: finally`);
 			await reader.cancel();
-			tail.abort();
+			command.kill();
 			await command.status;
 		}
 		return false;
@@ -1105,8 +1105,10 @@ namespace VM {
 
 			const result = await Promise.race([
 				command.status.then(status => status.success),
-				WatchLog(line =>
-					line.trim().endsWith(`${Static.System.Name} login:`),
+				WatchLog(
+					line =>
+						line.trim().endsWith(`${Static.System.Name} login:`),
+					{ signal: qemu.signal },
 				),
 			]);
 			command.unref();
@@ -1167,8 +1169,9 @@ namespace VM {
 				.quiet()
 				.code();
 			if (stop !== 0) return null;
-			const result = await WatchLog(line =>
-				line.trim().endsWith('reboot: Power down'),
+			const result = await WatchLog(
+				line => line.trim().endsWith('reboot: Power down'),
+				{ signal: AbortSignal.timeout(60_000) },
 			);
 			if (!result) return false;
 			await SSH.disable();
