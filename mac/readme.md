@@ -34,3 +34,9 @@ bash <(curl -fsSL https://raw.githubusercontent.com/navtoj/scripts/main/mac/qemu
 ```
 
 </details>
+
+### YT-DLP
+
+```shell
+curl -fsSL https://raw.githubusercontent.com/navtoj/scripts/main/mac/yt-dlp.sh | bash
+```
