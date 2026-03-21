@@ -21,3 +21,17 @@ docker ps --all --size --no-trunc
 ```shell
 docker exec <container> printenv
 ```
+
+### Run Binary
+
+[docker/alpine/mkcert](https://hub.docker.com/r/alpine/mkcert)
+
+```shell
+docker run -ti --rm alpine/mkcert
+```
+
+#### Cleanup
+
+```shell
+docker image prune --all --force
+```
