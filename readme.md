@@ -3,3 +3,4 @@
 - [Git](git#readme)
 - [macOS](mac#readme)
 - [Docker](docker.md)
+- [Raycast](raycast#readme)
