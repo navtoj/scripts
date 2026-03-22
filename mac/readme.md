@@ -1,6 +1,7 @@
 ### Guides
 
 - [How to create an app icon?](create-app-icon.md)
+- [How to set up mutual TLS?](mtls.md)
 
 ### Disable System Upgrade
 
