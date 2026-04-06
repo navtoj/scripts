@@ -4,3 +4,4 @@
 - [macOS](mac#readme)
 - [Docker](docker.md)
 - [Raycast](raycast#readme)
+- [VS Code](vscode.md)
