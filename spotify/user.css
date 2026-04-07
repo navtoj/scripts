@@ -1,0 +1,132 @@
+div.Root__top-container {
+	/* minimal lyrics theme */
+	#SpicyLyricsPage {
+		--LyricsLeftSidePadding: 5cqw;
+		--LyricsRightSidePadding: 4.5cqw;
+		div.SpicyLyricsScrollContainer {
+			margin-top: unset !important;
+			padding-top: min(
+				var(--LyricsLeftSidePadding),
+				var(--LyricsRightSidePadding)
+			) !important;
+		}
+		& > div.ContentBox > div.spicy-dynamic-bg.ColorBackground {
+			background-color: unset;
+			transition-property: unset;
+			&::before {
+				background-color: unset;
+				transition-property: unset;
+			}
+		}
+	}
+	/* hide now playing view */
+	&:has(> div.Root__right-sidebar aside[aria-label='Now playing view']) {
+		grid-template: 'top-banner top-banner' 'global-nav global-nav' 'left-sidebar main-view' 1fr 'now-playing-bar now-playing-bar' / auto 1fr;
+		padding-right: unset;
+	}
+	& > div.Root__right-sidebar {
+		&:has(aside[aria-label='Now playing view']) {
+			display: none;
+		}
+		& > div:first-child:has(div#SpicyLyricsPage) {
+			/* hide seethrough queue */
+			& aside[aria-label='Queue'] {
+				opacity: 0;
+			}
+		}
+		/* lock right width */
+		div[style*='width: 280px;']:not([style*='height:']) {
+			width: 348px !important;
+		}
+	}
+	/* lock left width */
+	& > div.Root__nav-bar[style*='--left-sidebar-width: 420;'] {
+		width: 332px !important;
+	}
+	/* home page */
+	div.main-home-content.contentSpacing {
+		/* fix padding */
+		& > section[aria-label^='Good']:first-child {
+			padding-top: var(--shelf-gap-horizontal);
+		}
+		/* hide extras */
+		& > section.Shelf[data-shelf='shelf']:last-child {
+			display: none;
+		}
+	}
+	/* minimal liked songs */
+	div.Root__main-view:has(main[aria-label='Spotify – Liked Songs']) {
+		header[data-testid='topbar'] {
+			display: none;
+		}
+		.main-entityHeader-container.main-entityHeader-containerNormal:has(
+				a[href^='/user/']
+			) {
+			display: none;
+			& ~ div div.main-trackList-trackListHeader {
+				top: 0 !important;
+			}
+		}
+	}
+	/* hide extras */
+	button[aria-label='Friend Activity'] {
+		display: none;
+	}
+	/* hide lyrics icon */
+	button.main-nowPlayingBar-lyricsButton {
+		/* &[data-testid='lyrics-button'][disabled] {
+			display: none;
+		}
+		&:not([data-testid='lyrics-button']) {
+			display: none;
+			&:not(#SpicyLyrics_FullscreenButton):has(
+					~ [data-testid='lyrics-button'][disabled]
+				) {
+				display: flex;
+			}
+		} */
+		&[data-testid='lyrics-button'],
+		&#SpicyLyrics_FullscreenButton {
+			display: none;
+		}
+	}
+	/* Order home columns based on usability. */
+	/* div.main-home-content > section {
+		&[aria-label^='Good '] {
+			order: -11 !important;
+		}
+		&[data-shelf-collapsable='true'] {
+			order: -10 !important;
+		}
+		&[aria-label*='Recently played'] {
+			order: -9 !important;
+		}
+		&[aria-label*='Jump back in'] {
+			order: -8 !important;
+		}
+		&[aria-label*='Your top mixes'] {
+			order: -7 !important;
+		}
+		&[aria-label*='Recommended for today'] {
+			order: -6 !important;
+		}
+		&[aria-label*='Your favorite artists'] {
+			order: -5 !important;
+		}
+		&[aria-label*='Made For  nav'] {
+			order: -4 !important;
+		}
+		&[aria-label*='Recommended Stations'] {
+			order: -3 !important;
+		}
+		&[aria-label*='Throwback Thursday'] {
+			order: -2 !important;
+		}
+		&[aria-label*='Episodes you might like'] {
+			order: -1 !important;
+		}
+		&[aria-label=''] {
+			display: none;
+		}
+	} */
+}
