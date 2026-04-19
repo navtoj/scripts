@@ -104,3 +104,40 @@ for size in 16 32 64 128 256 512; do sips -z $size $size "1024.png" --out "${siz
 	}
 }
 ```
+
+## Source
+
+[Icon Kitchen](https://icon.kitchen)
+
+### Encode
+
+```shell
+JSON='{
+  "values": {
+    "fgClipart": {
+      "set": "default",
+      "icon": "space_bar"
+    },
+    "fgColor": "#ffffff",
+    "bgColor": "#424242",
+    "fgPadding": {
+      "top": 13,
+      "right": 13,
+      "bottom": 13,
+      "left": 13
+    },
+    "fgEffects": "shadow"
+  },
+  "modules": [
+    "macos"
+  ]
+}'
+printf '%s' "$JSON" | gzip -n | base64 | tr '+/' '-_' | tr -d '=\n' | awk '{print "https://icon.kitchen/i/"$0}'
+```
+
+### Decode
+
+```shell
+URL="https://icon.kitchen/i/H4sIAAAAAAAAA02PvQ6DMAyE5_AUlWeWqlvXqnv3qqqcP4gaMEoMDIh3bxJQy2Z_Z_vOSyVgQj-aCNfTUgkBtrl5N2DgHQiIJtegjcXRM9QFOkV9pnFAZd4SAyS81vsF8hSyKj2qT9kA-adz69jAPvtArV3f_NyYhlSfL5tNcE3Lh14SM3UH4I3d9IP93VqjOJZ4LWqaU7asQUd69OXVZ57sUFFM2qtav6PIQ3wIAQAA"
+echo "${URL##*/}" | tr '_-' '/+' | awk '{p=(4-length%4)%4; while(p--)$0=$0"="; print}' | base64 -d | gunzip | jq
+```
