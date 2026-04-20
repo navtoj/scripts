@@ -5,4 +5,4 @@
 - [Docker](docker.md)
 - [Spotify](spotify#readme)
 - [Raycast](raycast#readme)
-- [VS Code](vscode.md)
+- [VS Code](vscode#readme)
