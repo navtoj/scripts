@@ -41,3 +41,24 @@ bash <(curl -fsSL https://raw.githubusercontent.com/navtoj/scripts/main/mac/qemu
 ```shell
 curl -fsSL https://raw.githubusercontent.com/navtoj/scripts/main/mac/yt-dlp.sh | bash
 ```
+
+### Dock Finder Intercept
+
+```shell
+NAME=dock-finder-intercept
+
+# Compile Script
+
+sudo swiftc -O "${NAME}.swift" -o "/usr/local/bin/${NAME}"
+
+# Create Launch Agent
+
+LAUNCH_AGENT="$HOME/Library/LaunchAgents/com.${NAME//-/.}.plist"
+mkdir -p "$(dirname "$LAUNCH_AGENT")"
+ln -sf "$(pwd)/${NAME}.xml" "$LAUNCH_AGENT"
+
+# Start on Login
+
+launchctl unload "$LAUNCH_AGENT" 2>/dev/null
+launchctl load "$LAUNCH_AGENT"
+```
