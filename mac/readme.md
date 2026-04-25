@@ -62,3 +62,28 @@ ln -sf "$(pwd)/${NAME}.xml" "$LAUNCH_AGENT"
 launchctl unload "$LAUNCH_AGENT" 2>/dev/null
 launchctl load "$LAUNCH_AGENT"
 ```
+
+### Remap Spotlight Key
+
+```shell
+NAME=remap-f4-to-f13
+
+# Create Launch Agent
+
+LAUNCH_AGENT="$HOME/Library/LaunchAgents/com.${NAME//-/.}.plist"
+mkdir -p "$(dirname "$LAUNCH_AGENT")"
+ln -sf "$(pwd)/${NAME}.xml" "$LAUNCH_AGENT"
+
+# Start on Login
+
+launchctl unload "$LAUNCH_AGENT" 2>/dev/null
+launchctl load "$LAUNCH_AGENT"
+
+# Set F13 to Screenshot
+
+BUNDLE_ID=com.apple.screenshot.launcher
+echo "f13 : pkill -f '"${BUNDLE_ID//./\\.}"' || open -b ${BUNDLE_ID}" >> .config/skhd/skhdrc
+```
+
+> [!NOTE]
+> Install `skhd` with `brew install jackielii/tap/skhd-zig`.
