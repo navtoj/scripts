@@ -1,0 +1,206 @@
+[
+	{
+		"context": "Workspace",
+		"unbind": {
+			"ctrl-tab": "tab_switcher::Toggle",
+		},
+		"bindings": {
+			"alt-[": "workspace::ActivatePreviousPane",
+			"alt-]": "workspace::ActivateNextPane",
+			"alt-cmd-[": [
+				"workspace::MoveItemToPaneInDirection",
+				{
+					"direction": "left",
+				},
+			],
+			"alt-cmd-]": [
+				"workspace::MoveItemToPaneInDirection",
+				{
+					"direction": "right",
+				},
+			],
+			"alt-cmd-ctrl-[": [
+				"workspace::MoveItemToPaneInDirection",
+				{
+					"direction": "up",
+				},
+			],
+			"alt-cmd-ctrl-]": [
+				"workspace::MoveItemToPaneInDirection",
+				{
+					"direction": "down",
+				},
+			],
+		},
+	},
+	{
+		"context": "Editor",
+		"bindings": {
+			"ctrl-[": "pane::SplitLeft",
+			"ctrl-]": "pane::SplitRight",
+			"alt-ctrl-[": "pane::SplitUp",
+			"alt-ctrl-]": "pane::SplitDown",
+			"ctrl-cmd-[": "pane::SplitAndMoveLeft",
+			"ctrl-cmd-]": "pane::SplitAndMoveRight",
+			"ctrl-tab": "editor::Indent",
+			"ctrl-shift-tab": "editor::Outdent",
+		},
+		"unbind": {
+			"cmd-\\": "pane::SplitRight",
+			"cmd-[": "editor::Outdent",
+			"cmd-]": "editor::Indent",
+			"alt-cmd-[": "editor::Fold",
+			"alt-cmd-]": "editor::UnfoldLines",
+		},
+	},
+	{
+		"context": "Pane",
+		"bindings": {
+			"cmd-[": "pane::ActivatePreviousItem",
+			"cmd-]": "pane::ActivateNextItem",
+		},
+		"unbind": {
+			"cmd-{": "pane::ActivatePreviousItem",
+			"cmd-}": "pane::ActivateNextItem",
+		},
+	},
+	{
+		"context": "Workspace",
+		"bindings": {
+			"alt-1": ["workspace::ActivatePane", 0],
+			"alt-2": ["workspace::ActivatePane", 1],
+			"alt-3": ["workspace::ActivatePane", 2],
+			"alt-4": ["workspace::ActivatePane", 3],
+			"alt-5": ["workspace::ActivatePane", 4],
+			"alt-6": ["workspace::ActivatePane", 5],
+			"alt-7": ["workspace::ActivatePane", 6],
+			"alt-8": ["workspace::ActivatePane", 7],
+			"alt-9": ["workspace::ActivatePane", 8],
+			"ctrl-l": "workspace::ToggleLeftDock",
+			"ctrl-b": "workspace::ToggleBottomDock",
+			"ctrl-r": "workspace::ToggleRightDock",
+		},
+		"unbind": {
+			"cmd-1": ["workspace::ActivatePane", 0],
+			"cmd-2": ["workspace::ActivatePane", 1],
+			"cmd-3": ["workspace::ActivatePane", 2],
+			"cmd-4": ["workspace::ActivatePane", 3],
+			"cmd-5": ["workspace::ActivatePane", 4],
+			"cmd-6": ["workspace::ActivatePane", 5],
+			"cmd-7": ["workspace::ActivatePane", 6],
+			"cmd-8": ["workspace::ActivatePane", 7],
+			"cmd-9": ["workspace::ActivatePane", 8],
+			"cmd-b": "workspace::ToggleLeftDock",
+			"cmd-j": "workspace::ToggleBottomDock",
+			"cmd-r": "workspace::ToggleRightDock",
+			"ctrl-r": [
+				"projects::OpenRecent",
+				{
+					"create_new_window": false,
+				},
+			],
+			"cmd-w": "workspace::CloseActiveDock",
+		},
+	},
+	{
+		"context": "Terminal",
+		"bindings": {
+			"cmd-shift-d": "pane::SplitDown",
+		},
+		"unbind": {
+			"ctrl-alt-down": "pane::SplitDown",
+			"ctrl-r": ["terminal::SendKeystroke", "ctrl-r"],
+		},
+	},
+	{
+		"context": "Pane",
+		"bindings": {
+			"cmd-1": ["pane::ActivateItem", 0],
+			"cmd-2": ["pane::ActivateItem", 1],
+			"cmd-3": ["pane::ActivateItem", 2],
+			"cmd-4": ["pane::ActivateItem", 3],
+			"cmd-5": ["pane::ActivateItem", 4],
+			"cmd-6": ["pane::ActivateItem", 5],
+			"cmd-7": ["pane::ActivateItem", 6],
+			"cmd-8": ["pane::ActivateItem", 7],
+			"cmd-9": ["pane::ActivateItem", 8],
+			"ctrl-,": "pane::GoBack",
+			"ctrl-.": "pane::GoForward",
+		},
+		"unbind": {
+			"ctrl-0": "pane::ActivateLastItem",
+			"ctrl-1": ["pane::ActivateItem", 0],
+			"ctrl-2": ["pane::ActivateItem", 1],
+			"ctrl-3": ["pane::ActivateItem", 2],
+			"ctrl-4": ["pane::ActivateItem", 3],
+			"ctrl-5": ["pane::ActivateItem", 4],
+			"ctrl-6": ["pane::ActivateItem", 5],
+			"ctrl-7": ["pane::ActivateItem", 6],
+			"ctrl-8": ["pane::ActivateItem", 7],
+			"ctrl-9": ["pane::ActivateItem", 8],
+			"ctrl--": "pane::GoBack",
+			"ctrl-_": "pane::GoForward",
+		},
+	},
+	{
+		"context": "Editor",
+		"unbind": {
+			"ctrl-l": "editor::ScrollCursorCenter",
+			"ctrl-b": "editor::MoveLeft",
+		},
+	},
+	{
+		"context": "!AcpThread > Editor && mode == full",
+		"bindings": {
+			"ctrl-1": "pane::RevealInProjectPanel",
+		},
+		"unbind": {
+			"cmd-shift-e": "pane::RevealInProjectPanel",
+		},
+	},
+	{
+		"context": "AgentPanel",
+		"bindings": {
+			"ctrl-1": "project_panel::ToggleFocus",
+		},
+		"unbind": {
+			"cmd-shift-e": "project_panel::ToggleFocus",
+		},
+	},
+	{
+		"context": "Workspace",
+		"bindings": {
+			"ctrl-0": ["workspace::SendKeystrokes", "ctrl-5 ctrl-6"],
+			"ctrl-1": "project_panel::ToggleFocus",
+			"ctrl-2": "git_panel::ToggleFocus",
+			"ctrl-3": "terminal_panel::ToggleFocus",
+			"ctrl-4": "debug_panel::ToggleFocus",
+			"ctrl-5": "editor::ToggleFocus",
+			"ctrl-6": "editor::ScrollCursorCenter",
+			"ctrl-7": "outline_panel::ToggleFocus",
+			"ctrl-8": "collab_panel::ToggleFocus",
+			"ctrl-9": "agent::ToggleFocus",
+			"cmd-shift-escape": "workspace::CloseProject",
+		},
+		"unbind": {
+			"cmd-shift-e": "project_panel::ToggleFocus",
+			"ctrl-shift-g": "git_panel::ToggleFocus",
+			"cmd-shift-b": "outline_panel::ToggleFocus",
+			"ctrl-`": "terminal_panel::Toggle",
+			"cmd-shift-d": "debug_panel::ToggleFocus",
+			"cmd-?": "agent::ToggleFocus",
+			"alt-cmd-;": "multi_workspace::FocusWorkspaceSidebar",
+			"alt-cmd-j": "multi_workspace::ToggleWorkspaceSidebar",
+		},
+	},
+	{
+		"unbind": {
+			"cmd-shift-c": "collab_panel::ToggleFocus",
+			"cmd-q": "zed::Quit",
+		},
+		"bindings": {
+			"ctrl-s": "editor::RotateSelectionsForward",
+			"ctrl-shift-s": "editor::RotateSelectionsBackward",
+		},
+	},
+]
